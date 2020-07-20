@@ -9,14 +9,15 @@ from utilfunctions import shape_adopter
 SYSTEM_SIZE = 4
 env = Environment(SYSTEM_SIZE)
 agent = Agent(nr_actions=4)
-ROUND_OF_TRAINING = 50
+ROUNDS_OF_TRAINING = SYSTEM_SIZE * SYSTEM_SIZE * 100
 
 random.seed(1)
 np.random.seed(1)
 
-for training_id in range(ROUND_OF_TRAINING):
+for training_id in range(ROUNDS_OF_TRAINING):
 
     print("round: "+str(training_id))
+    # TODO: change this! randomly assigned initial state
     state = np.array([[0, 0]])
     state_history = []
     reward_history = []
@@ -38,15 +39,15 @@ for training_id in range(ROUND_OF_TRAINING):
         steps += 1
 
     print("...     terminated at: "+str(steps))
-    print("...     reshaping the data")
 
+    print("...     reshaping the data")
     state_history = shape_adopter(state_history, 2)
     action_history = shape_adopter(action_history, 4)
     reward_history = shape_adopter(reward_history, 1)
 
-    reward_to_go = calulate_reward_to_go(reward_history)
+    reward_to_go = calulate_reward_to_go(reward_history, gamma=0.95)
 
     reward_weighted_actions = np.multiply(action_history, reward_to_go)
 
     print("...     training")
-    training_log = agent.policy.fit(x=state_history, y=reward_weighted_actions, epochs=100, verbose=0)
+    training_log = agent.policy.fit(x=state_history, y=reward_weighted_actions, epochs=50, verbose=0)

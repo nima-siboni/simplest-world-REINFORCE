@@ -3,8 +3,23 @@ import numpy as np
 
 class Environment:
     '''
-    # TODO:
+    A class for the environment:
+
+    - creates a lattice model of the given size
+    - the list of possible allowed actions are also set in the initializer.
+    - the terminal state is assigned here,
+    - whether the agent has reached the terminal state is also stored here(!!!)
+    - reward for different events are also set here
+        -- for each step
+        -- for reaching the final state
+        -- for hitting the wall
+
+    The step method returns:
+    - the new state, and
+    - the reward,
+    for the given input action id and for the given state.
     '''
+
     def __init__(self, system_size=5):
         self.actions_dict = {
             0: [1, 0],
@@ -22,14 +37,16 @@ class Environment:
 
     def step(self, action_id, state):
         '''
-        given the action_id it takes the step and returns the reward.
+        given the action_id, and the state it takes the step and returns:
+        - the new state, and
+        - the reward.
+        side effect: changes the value of terminated variable if the 
+        agent reaches the terminal state.
 
         Key arguments:
         action_id -- the number associated with the action.
         state -- the current state
         '''
-
-        # default value set every step
 
         self.terminated = False
 

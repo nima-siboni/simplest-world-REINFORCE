@@ -2,13 +2,18 @@ import numpy as np
 
 
 def one_hot(chosen_act, nr_actions):
+    '''
+    turn the chosen action to a one hotted vector
+    '''
     tmp = np.zeros((1, nr_actions))
     tmp[0, chosen_act] = 1
     return tmp
 
 
 def shape_adopter(history, m):
-
+    '''
+    convert a (x, 1, y)
+    '''
     history = np.array(history)
 #    import pdb; pdb.set_trace()
 #    _, _, m = np.shape(history)
