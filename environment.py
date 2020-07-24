@@ -27,7 +27,7 @@ class Environment:
             2: [-1, 0],
             3: [0, -1]
         }
-        self.terminated = False
+        #self.terminated = False
         self.SYSTEM_SIZE = system_size
         self.TERMINAL_STATE = np.array([[system_size - 1, system_size - 1]])
         self.NR_ACTIONS = 4
@@ -48,7 +48,7 @@ class Environment:
         state -- the current state
         '''
 
-        self.terminated = False
+        terminated = False
 
         chosen_action = self.actions_dict.get(action_id)
 
@@ -61,10 +61,10 @@ class Environment:
             reward = self.reward_for_hitting_the_wall
         else:
             if (np.array_equal(new_state, self.TERMINAL_STATE)):
-                print("TERMINAL_STATE is reached")
+                #print("TERMINAL_STATE is reached")
                 reward = self.reward_for_final_state
-                self.terminated = True
+                terminated = True
             else:
                 reward = self.reward_for_each_step
 
-        return new_state, reward
+        return new_state, reward, terminated
