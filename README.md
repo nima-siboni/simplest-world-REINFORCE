@@ -8,14 +8,16 @@ the *simplest-world* provides a simple environment for the agents. Here, the wor
 
 
 ## requirements
+Besides the python3 and pip3
+
 * keras
 * numpy
 * random
 * seaborn
-* tensorflow
+* tensorflow (version 2)
 
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 ## usage
 
