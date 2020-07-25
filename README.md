@@ -23,7 +23,7 @@ To use it one can run:
 ```
 python3 experience-and-learn.py
 ```
-## monitoring Peformance
+## monitoring peformance
 
 An advantage of a simplest world is that we know almost everything about it! Specifically, given your initial state, one can calculate the number of steps to reach the terminal state under the **optimal** policy.
 
