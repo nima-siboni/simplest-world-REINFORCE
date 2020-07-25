@@ -21,18 +21,19 @@ class Environment:
     '''
 
     def __init__(self, system_size=5):
+
         self.actions_dict = {
             0: [1, 0],
             1: [0, 1],
             2: [-1, 0],
             3: [0, -1]
         }
-        #self.terminated = False
+
         self.SYSTEM_SIZE = system_size
         self.TERMINAL_STATE = np.array([[system_size - 1, system_size - 1]])
         self.NR_ACTIONS = 4
         self.reward_for_each_step = -1
-        self.reward_for_final_state = 10
+        self.reward_for_final_state = 0
         self.reward_for_hitting_the_wall = -10
 
     def step(self, action_id, state):

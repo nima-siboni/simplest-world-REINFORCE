@@ -50,7 +50,7 @@ def monitoring_performance(log, training_id, steps, initial_state, env, write_to
 
     assert steps_for_the_optimal_policy > 0
 
-    performance = steps / steps_for_the_optimal_policy
+    performance = steps_for_the_optimal_policy / steps
 
     if training_id == 0:
         log = np.array([[training_id, performance, steps]])
