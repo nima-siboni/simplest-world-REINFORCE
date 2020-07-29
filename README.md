@@ -29,6 +29,6 @@ python3 experience-and-learn.py
 
 An advantage of a simplest world is that we know almost everything about it! Specifically, given your initial state, one can calculate the number of steps to reach the terminal state under the **optimal** policy.
 
-![](./performance-measurements/performance-vs-training.png)
+![](./performance-measurements/performance-vs-episodes.png)
 
 ## tips and tricks
