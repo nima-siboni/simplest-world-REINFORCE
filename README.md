@@ -20,10 +20,32 @@ To use it one can run:
 ```
 python3 experience-and-learn.py
 ```
+This script runs experiments for a policy and improves it. 
+
+
 ## monitoring peformance
 
-An advantage of a simplest world is that we know almost everything about it! Specifically, given your initial state, one can calculate the number of steps to reach the terminal state under the **optimal** policy.
+An advantage of a simplest world is that we know almost everything about it! Specifically, given your initial state, one can calculate the number of steps to reach the terminal state under the **optimal** policy. Here is the performance plotted against the number of trainings.
 
 ![](./performance-measurements/performance-vs-episodes.png)
+
+Using the simulator one can observe two agents competing to reach to the goal position (top-right corner). The red agent is not trained, and the blue one is the trained one. 
+
+![](./animations/animation.gif)
+
+To run the simulation:
+
+```
+python3 simulator.py
+```
+
+and to convert the PNG files to a GIF by:
+
+
+```
+bash converting-pngs-to-gif.sh
+```
+
+in the ``animations``` directory.
 
 ## tips and tricks
