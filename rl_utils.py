@@ -68,12 +68,11 @@ class Histories():
     just a class to hold data
     '''
     def __init__(self):
-        self.state_history = []
+        self.scaled_state_history = []
         self.reward_history = []
         self.action_history = []
 
-    def appending(self, reward, state, one_hot_action):
+    def appending(self, reward, scaled_state, one_hot_action):
         self.reward_history.append(reward)
-        self.state_history.append(state)
+        self.scaled_state_history.append(scaled_state)
         self.action_history.append(one_hot_action)
-        

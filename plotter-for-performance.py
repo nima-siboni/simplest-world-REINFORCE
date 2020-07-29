@@ -8,7 +8,7 @@ df = pd.DataFrame(data, columns=['training', 'performance', 'steps'])
 df.loc[:, 'inverse-performance'] = 1.0/df.loc[:, 'performance']
 df.loc[:, 'mistaken-steps'] = df.loc[:, 'steps'] - df.loc[:, 'performance'] * df.loc[:, 'steps']
 
-averaged_50 = df.rolling(50).mean().dropna(axis=0)
+averaged_50 = df.rolling(128).mean().dropna(axis=0)
 
 fig, ax = plt.subplots()
 

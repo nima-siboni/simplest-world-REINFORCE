@@ -34,7 +34,7 @@ class Environment:
         self.NR_ACTIONS = 4
         self.reward_for_each_step = -1
         self.reward_for_final_state = 10
-        self.reward_for_hitting_the_wall = -10
+        self.reward_for_hitting_the_wall = -4
 
     def step(self, action_id, state):
         '''

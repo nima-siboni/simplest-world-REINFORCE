@@ -22,10 +22,9 @@ def initializer(x0=0, y0=0):
     '''
 
     state = np.array([[x0, y0]])
-    histories = Histories()
     terminated = False
     steps = 0
-    return state, histories, terminated, steps
+    return state, terminated, steps
 
 
 def shape_adopter(history, m):
@@ -44,7 +43,7 @@ def reshaping_and_reward_to_go_calculations(histories, gamma):
     '''
     Capsulating the shape_adopter and calculate_reward_to_go
     '''
-    state_history = shape_adopter(histories.state_history, 2)
+    scaled_state_history = shape_adopter(histories.scaled_state_history, 2)
     action_history = shape_adopter(histories.action_history, 4)
     reward_history = shape_adopter(histories.reward_history, 1)
 
@@ -52,7 +51,7 @@ def reshaping_and_reward_to_go_calculations(histories, gamma):
 
     reward_weighted_actions = np.multiply(action_history, reward_to_go)
 
-    return reward_weighted_actions, state_history
+    return reward_weighted_actions, scaled_state_history
 
 
 def find_initial_state(env):
@@ -65,11 +64,18 @@ def find_initial_state(env):
 
     return initial_state
 
+
 def update_state_step(new_state, step):
     state = new_state + 0
     step = step + 1
     return state, step
-    
 
 
+def scale_state(state, env):
+    '''
+    scaling the coordinates between -1.0 and 1.0
+    '''
 
+    scaled_state = (2.0 * state) / (env.SYSTEM_SIZE - 1.0) - 1.0
+
+    return scaled_state
