@@ -27,11 +27,11 @@ This script runs experiments for a policy and improves it.
 
 An advantage of a simplest world is that we know almost everything about it! Specifically, given your initial state, one can calculate the number of steps to reach the terminal state under the **optimal** policy. Here is the performance plotted against the number of trainings.
 
-![](./performance-measurements/performance-vs-episodes.png)
+<img src="./performance-measurements/performance-vs-episodes.png" width="60%">
 
 Using the simulator one can observe two agents competing to reach to the goal position (top-right corner). The red agent is not trained, and the blue one is the trained one. 
 
-![](./animations/animation.gif)
+<img src="./animations/animation.gif" width="70%">
 
 To run the simulation:
 
