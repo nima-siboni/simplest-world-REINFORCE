@@ -9,7 +9,8 @@ Besides the python3 and pip3
 * numpy
 * random
 * seaborn
-* tensorflow (version 2)
+* keras and tensorflow (version 2)
+* matplotlib (for simulator.py)
 
 ```
 pip3 install -r requirements.txt
