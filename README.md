@@ -1,6 +1,6 @@
 # simplest-world-REINFORCE
 
-the *simplest-world* provides a simple environment for the agents. Here, the world is made ultimately simple to leave some room for the RL complications. This is the first of hopefully-a-series of clean implementations of different RL approaches. 
+the *simplest-world* provides a simple environment for the agents. Here, the world is made ultimately simple to leave some room for the RL complications. This is the first of hopefully-a-series of clean implementations of different RL approaches. The world is square lattice where the agent starts randomly in any position and its goal is to get to the top-right corner of the field.
 
 ## requirements
 Besides the python3 and pip3
@@ -20,16 +20,27 @@ To use it one can run:
 ```
 python3 experience-and-learn.py
 ```
-This script runs experiments for a policy and improves it. 
+This script runs experiments for a random policy and improves it. The size of the world is 8x8 and it can be changed by setting the variable ```SYSTEM_SIZE``` (in ```experience-and-learn.py```) to the desired value.
 
+## anatomy of the code
 
-## monitoring peformance
+The code ```experience-and-learn.py``` creates an environment and an agent. The agent, initially, has a random policy and starts from a random position. Following the policy, agent takes one step after another until it reaches the terminal state (the goal). The trajectory of the agent, together with rewards associated with each step, is saved in a container (```hisotries```). Up to here, the agent has only sampled according to its policy. The history of this sampling, i.e. the states, the taken actions, and the associated rewards, are used to train the policy of the agent. After the training, the agent starts again and samples according to the improved policy. 
 
-An advantage of a simplest world is that we know almost everything about it! Specifically, given your initial state, one can calculate the number of steps to reach the terminal state under the **optimal** policy. Here is the performance plotted against the number of trainings.
+The environment is an instance of a class which has:
+* ```__init__``` method which has all the actions and the reward at its initiation. Specifically it has rewards for reaching the goal, hitting the walls, and any other step, 
+* a method named ```step``` with which the agent takes a step. The inputs to this method are the current state of the agent and the action to be taken. The outputs are the new state, the reward, and a flag which shows whether the agent has reached to the terminal state.
+
+The agent is an instance of a class which has:
+* ```__init__```  method which creates a deep neural network as agent's policy. In this implementation the policy has two hidden layers (64 and 5) both with ReLU activation functions. 
+* ```learning``` method which implements the policy gradient approach.
+
+## monitoring performance
+
+An advantage of the simplest world is that we know almost everything about it! Specifically, given your initial state, one can calculate the number of steps to reach the terminal state under the **optimal** policy. Here is the performance plotted against the number of trainings.
 
 <img src="./performance-measurements/performance-vs-episodes.png" width="60%">
 
-Using the simulator one can observe two agents competing to reach to the goal position (top-right corner). The red agent is not trained, and the blue one is the trained one. 
+Using the simulator one can observe the two agents competing to reach to the goal position (top-right corner). The red agent is not trained, and the blue one is the trained one. 
 
 <img src="./animations/animation.gif" width="70%">
 
