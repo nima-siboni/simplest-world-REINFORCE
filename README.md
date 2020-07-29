@@ -37,11 +37,16 @@ The agent is an instance of a class which has:
 
 ## monitoring performance
 
-An advantage of the simplest world is that we know almost everything about it! Specifically, given your initial state, one can calculate the number of steps to reach the terminal state under the **optimal** policy. Here is the performance plotted against the number of trainings.
+An advantage of the simplest world is that we know almost everything about it! Specifically, given your initial state, one can calculate the number of steps to reach the terminal state under the **optimal** policy. Knowing the number of states to reach the goal, one can define a parameter to quantify the performance:
+
+<img src="https://latex.codecogs.com/gif.latex?\mathrm{performance}=\frac{\mathrm{num.~of~steps~by~agent}}{\mathrm{optimal~num.~of~steps}}" /> 
+
+
+In the figure below,the performance is plotted as a function of the number of the trainings. The graph shows that the performance increases with more training.
 
 <img src="./performance-measurements/performance-vs-episodes.png" width="60%">
 
-Using the simulator one can observe the two agents competing to reach to the goal position (top-right corner). The red agent is not trained, and the blue one is the trained one. 
+To visualize the better performance of the trained agent, one can run two simulations: one for the agent before the training, and one for the trained agent. For the simulations one can use ```simulator.py```. The blue circle represents the position of the trained agent and the red circle depicts the position of the agent with no traingin. Clearly, the trained agent reaches the goal in an optimal fashion.
 
 <img src="./animations/animation.gif" width="70%">
 
