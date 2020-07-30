@@ -67,6 +67,7 @@ bash converting-pngs-to-gif.sh
 in the ``animations``` directory.
 
 ## tips and tricks
+*TO BE EXPLAINED*
 - on convergance: the role of exploration/exploitation devide
 - initial policy in small or big systems
 - sample collection and variance
