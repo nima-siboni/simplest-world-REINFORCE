@@ -64,7 +64,7 @@ and to convert the PNG files to a GIF by:
 bash converting-pngs-to-gif.sh
 ```
 
-in the ``animations``` directory.
+in the ```animations``` directory.
 
 ## tips and tricks
 *TO BE EXPLAINED*
