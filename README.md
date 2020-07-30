@@ -2,7 +2,7 @@
 
 the *simplest-world* provides a simple environment for the agents. Here, the world is made ultimately simple to leave some room for the RL complications. This is the first of hopefully-a-series of clean implementations of different RL approaches. The world is square lattice where the agent starts randomly in any position and its goal is to get to the top-right corner of the field.
 
-In this repository a simple implementation of REINFORCE is developed (On policy, policy gradient).
+In this repository a simple implementation of REINFORCE is developed (on policy, policy gradient).
 ## requirements
 Besides the python3 and pip3
 
