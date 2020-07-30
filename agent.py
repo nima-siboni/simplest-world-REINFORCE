@@ -11,7 +11,7 @@ class Agent:
     - 
     '''
     def __init__(self, nr_actions, gamma=0.99, epsilon=0.02):
-        initializer = tf.keras.initializers.RandomNormal(mean=0.0, stddev=0.5, seed=1)
+        initializer = tf.keras.initializers.RandomNormal(mean=0.0, stddev=0.2, seed=1)
         optimzer = tf.keras.optimizers.Adam(learning_rate=0.01)
         inputs = keras.layers.Input(shape=(2))
         x = layers.Dense(64, activation='relu', kernel_initializer=initializer)(inputs)
