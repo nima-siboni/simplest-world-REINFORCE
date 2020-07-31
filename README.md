@@ -43,7 +43,7 @@ An advantage of the simplest world is that we know almost everything about it! S
 <img src="https://latex.codecogs.com/gif.latex?\mathrm{performance}=\frac{\mathrm{num.~of~steps~by~agent}}{\mathrm{optimal~num.~of~steps}}" /> 
 
 
-In the figure below,the performance is plotted as a function of the number of the trainings. The graph shows that the performance increases with more training.
+In the figure below, the performance is plotted as a function of the number of the trainings (the dark-blue line is the moving average of the gray line). The graph shows that the performance increases with more training, as expected.
 
 <img src="./performance-measurements/performance-vs-episodes.png" width="60%">
 
